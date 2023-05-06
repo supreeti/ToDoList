@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300;1,400&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -31,7 +33,8 @@
 }
 
 .refresh {
-  height: 40%;
+  height: 70%;
+  width: 40%;
   cursor: pointer;
 }
 
@@ -90,4 +93,64 @@
 
 .text-gray {
   background-color: rgb(223, 215, 215);
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #999;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+}
+
+i.uil-ellipsis-v {
+  margin-left: auto;
+}
+
+.header i {
+  color: #999;
+}
+
+button[type='submit'] {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  margin-left: 0.5rem;
+  color: #999;
+}
+
+input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+input[type='checkbox']:checked + span {
+  text-decoration: line-through;
+}
+
+#new-task::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.delete-button {
+  color: #080101;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 40px;
+  margin-left: 12px;
+  padding: 0;
+}
+
+#taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

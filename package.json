@@ -1,20 +1,20 @@
 {
   "name": "todolist",
   "version": "1.0.0",
-  "description": "This project is an online library to add/delete and store books locally using javascript ES6 objects and arrow notation.",
-  "main": "webpack.config.js",
+  "description": "This project is about add/delete To-Do-List using webpack.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/supreeti/ToDoList.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Supreeti",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/supreeti/ToDoList/issues"
   },
@@ -22,13 +22,23 @@
   "devDependencies": {
     "css-loader": "^6.7.3",
     "csv-loader": "^3.0.5",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.27.5",
+    "hint": "^7.1.8",
     "html-webpack-plugin": "^5.5.1",
     "style-loader": "^3.3.2",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3",
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
     "lodash": "^4.17.21"
-  }
+  },
+  "main": "webpack.config.js"
 }

@@ -1,38 +1,141 @@
 import './style.css';
 
-const list = document.querySelector('.taskList');
-const doTask = [
-  {
-    description: 'Washing Dish',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Learning Javascript',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Doing project',
-    completed: false,
-    index: 2,
-  },
-];
-const updateData = () => {
-  let html = '';
-  for (let i = 0; i < doTask.length; i += 1) {
-    if (doTask[i].completed === false) {
-      html += `<div class="item">
-        <div class="item-detail">
-            <input type="checkbox" class="item-check">
-            <h5>${doTask[i].description}</h5>
-        </div>
-        <img src="./action.png" id="${i}" alt="" class="dot">
-    </div>`;
-    }
-  }
-  list.innerHTML = html;
-  list.classList.add('text-gray');
+const list = document.getElementById('taskList');
+const newItem = document.getElementById('addTasks');
+const form = document.querySelector('form');
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+let editTaskDescription;
+let deleteTask;
+
+const saveTasks = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
-window.onload = () => updateData();
+const createTaskLists = (task) => {
+  const deleteButton = document.createElement('button');
+  const listItemElement = document.createElement('li');
+  const iconElement = document.createElement('i');
+  const descriptionElement = document.createElement('span');
+
+  const checkboxElement = document.createElement('input');
+  checkboxElement.type = 'checkbox';
+  checkboxElement.checked = task.completed;
+
+  checkboxElement.addEventListener('change', () => {
+    task.completed = checkboxElement.checked;
+    saveTasks();
+
+    // Check if the checkbox is now checked
+    if (checkboxElement.checked) {
+      deleteButton.style.display = 'block';
+      iconElement.style.display = 'none';
+      listItemElement.style.display = 'flex';
+      listItemElement.style.justifyContent = 'flex-start';
+      deleteButton.style.marginLeft = 'auto';
+    } else {
+      deleteButton.style.display = 'none';
+      iconElement.style.display = 'block';
+      descriptionElement.style.color = '#999';
+    }
+  });
+
+  descriptionElement.textContent = task.description;
+
+  descriptionElement.addEventListener('click', () => {
+    editTaskDescription(task);
+  });
+
+  listItemElement.appendChild(checkboxElement);
+  listItemElement.appendChild(descriptionElement);
+
+  iconElement.classList.add('uil', 'uil-ellipsis-v');
+  iconElement.addEventListener('click', () => {
+    editTaskDescription(task);
+  });
+  listItemElement.appendChild(iconElement);
+
+  deleteButton.innerHTML = '<i class="uil uil-trash"></i>';
+  deleteButton.classList.add('delete-button');
+  deleteButton.style.display = 'none';
+
+  deleteButton.addEventListener('click', () => {
+    deleteTask(task.index);
+  });
+
+  listItemElement.appendChild(deleteButton);
+
+  return listItemElement;
+};
+
+const updateTask = () => {
+  tasks.forEach((task, index) => {
+    task.index = index;
+  });
+};
+
+const renderTaskList = () => {
+  list.innerHTML = '';
+
+  tasks
+    .sort((task1, task2) => task1.index - task2.index)
+    .forEach((task) => {
+      const listItemElement = createTaskLists(task);
+      list.appendChild(listItemElement);
+    });
+};
+
+deleteTask = (index) => {
+  tasks = tasks.filter((task) => task.index !== index);
+  updateTask();
+  saveTasks();
+  renderTaskList();
+};
+
+editTaskDescription = (task) => {
+  const inputElement = document.createElement('input');
+  inputElement.type = 'text';
+  inputElement.value = task.description;
+  inputElement.classList.add('edit-input');
+
+  inputElement.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      task.description = inputElement.value.trim();
+      saveTasks();
+      renderTaskList();
+    } else if (event.key === 'Escape') {
+      renderTaskList();
+    }
+  });
+
+  const listItemElement = list.children[task.index];
+  listItemElement.replaceChild(inputElement, listItemElement.children[1]);
+  inputElement.select();
+};
+
+function addNewTask(description) {
+  const taskIndex = tasks.length;
+
+  const task = { description, completed: false, index: taskIndex };
+  tasks.push(task);
+  saveTasks();
+
+  const listItemElement = createTaskLists(task);
+  list.appendChild(listItemElement);
+}
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const taskDescription = newItem.value;
+  if (taskDescription.trim() === '') {
+    return;
+  }
+
+  addNewTask(taskDescription);
+  newItem.value = '';
+});
+
+renderTaskList();
+window.addEventListener('load', renderTaskList);
