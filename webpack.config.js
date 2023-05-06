@@ -4,14 +4,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    bundle: path.resolve(__dirname, 'src/index.js'),
+  },
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    port: 8081,
+    open: true,
+    hot: true,
+    watchFiles: ['src/**/*'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      title: 'ToDoList',
+      filename: 'index.html',
+      template: path.resolve(__dirname, 'src/index.html'),
     }),
   ],
   output: {

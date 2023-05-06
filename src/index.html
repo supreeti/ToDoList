@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Add ToDOList</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 <body>
 
@@ -13,13 +13,14 @@
         <div class="container">
             <div class="header">
                 <h4>Today's To Do</h4>
-                <img src="./refresh.png" alt="" class="refresh">
+                <i class="uil uil-redo"></i>
             </div>
-            <form action="" method="post" class="addList">
+            <form action="" method="post" class="addList" id="form">
                 <input type="text" name="" id="addTasks" placeholder="Add to your list...">
+                <button type="submit"><i class="uil uil-enter"></i></button>
             </form>
             
-            <div class="taskList">
+            <div id="taskList">
                 
             </div>
            
