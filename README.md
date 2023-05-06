@@ -32,7 +32,7 @@ This project is about simple to do list app using webpack.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [https://supreeti.github.io/ToDoList/](Find Here)
+- [Live Demo Link](https://supreeti.github.io/ToDoList/)
   Here you can visit my project.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
