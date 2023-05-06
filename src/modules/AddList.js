@@ -1,3 +1,16 @@
+function clearCompleted() {
+  const checkboxes = document.querySelectorAll('input[type=checkbox]');
+  checkboxes.forEach((cb, i) => {
+    cb.addEventListener('change', () => {
+      if (checkboxes[i].checked) {
+        checkboxes[i].style.textDecoration = 'line-through';
+      } else {
+        checkboxes[i].style.textDecoration = 'none';
+      }
+    });
+  });
+}
+
 const list = document.getElementById('taskList');
 const addDoList = (todo) => {
   list.innerHTML += `
@@ -9,6 +22,7 @@ const addDoList = (todo) => {
       </button>
     </li>
   `;
+  clearCompleted();
 };
 
 export default addDoList;

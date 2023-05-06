@@ -4,17 +4,17 @@ import deleteList from './modules/DeleteList.js';
 import {
   getList, addList, removeList, updateList,
 } from './modules/UpdateList.js';
+import completedList from './modules/CompletedList.js';
 
-const display = () => {
+const doList = () => {
   const todos = getList() || [];
   if (todos) {
     todos.map((todo) => addDoList(todo));
   }
 };
 
-display();
-document.getElementById('form').addEventListener('submit', (e) => {
-  e.preventDefault();
+doList();
+document.getElementById('form').addEventListener('submit', () => {
   const todos = getList();
   const todoInput = document.getElementById('addTasks').value;
   const todoTask = {
@@ -58,12 +58,16 @@ window.remove = (index) => {
   removeList(index);
 };
 
-document.getElementById('allCompleted').addEventListener('click', () => {
+window.completedTodo = (index) => {
+  completedList(index);
+};
+
+document.getElementById('clearAll').addEventListener('click', () => {
   const todos = getList();
-  const allCompleted = todos.filter((todo) => !todo.completed);
-  allCompleted.forEach((todo, i) => {
+  const clearAll = todos.filter((todo) => !todo.completed);
+  clearAll.forEach((todo, i) => {
     todo.index = i;
   });
-  localStorage.setItem('todos', JSON.stringify(allCompleted));
+  localStorage.setItem('todos', JSON.stringify(clearAll));
   window.location.reload();
 });
