@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300;1,400&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: auto;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+.refresh {
+  height: 70%;
+  width: 40%;
+  cursor: pointer;
+}
+
+.addList {
+  display: flex;
+  align-items: center;
+}
+
+.addList input {
+  width: 100%;
+  height: 35px;
+  padding: 0 15px;
+}
+
+.my-list {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  border-bottom: 1px solid gray;
+}
+
+.dot {
+  height: 80%;
+  cursor: pointer;
+}
+
+.item-check {
+  height: 20px;
+  width: 20px;
+}
+
+.item-detail {
+  display: flex;
+  gap: 5px;
+}
+
+.clearAll {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.text-gray {
+  background-color: rgb(223, 215, 215);
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #999;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+}
+
+i.uil-ellipsis-v {
+  border: none;
+  background: none;
+  outline: none;
+  width: 25px;
+}
+
+.header i {
+  color: #999;
+}
+
+button[type='submit'] {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  margin-left: 0.5rem;
+  color: #999;
+}
+
+input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+input[type='checkbox']:checked + span {
+  text-decoration: line-through;
+}
+
+#new-task::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.delete-button {
+  color: #080101;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  outline: none;
+}
+
+#taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.taskToDO {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#checkbox {
+  width: 15px;
+  border-color: #d7d7f8;
+}
