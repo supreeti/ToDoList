@@ -1,14 +1,11 @@
 function clearCompleted() {
   const checkboxes = document.querySelectorAll('input[type=checkbox]');
-  const description = document.querySelectorAll('.edit');
   checkboxes.forEach((cb, i) => {
     cb.addEventListener('change', () => {
       if (checkboxes[i].checked) {
-        description[i].style.textDecoration = 'line-through';
-        description[i].style.color = '#cacacb';
+        checkboxes[i].style.textDecoration = 'line-through';
       } else {
-        description[i].style.textDecoration = 'none';
-        description[i].style.color = 'black';
+        checkboxes[i].style.textDecoration = 'none';
       }
     });
   });

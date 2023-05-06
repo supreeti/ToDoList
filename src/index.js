@@ -14,7 +14,8 @@ const doList = () => {
 };
 
 doList();
-document.getElementById('form').addEventListener('submit', () => {
+document.getElementById('form').addEventListener('submit', (e) => {
+  e.preventDefault();
   const todos = getList();
   const todoInput = document.getElementById('addTasks').value;
   const todoTask = {
