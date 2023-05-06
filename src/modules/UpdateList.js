@@ -16,9 +16,9 @@ const addList = (todo) => {
 
 const removeList = (index) => {
   const todos = getList();
-  const deletedTodos = todos.filter((todo) => todo.index !== index);
-  deletedTodos.forEach((todo, i) => {
-    todo.index = i;
+  const deletedTodos = todos.filter((task) => task.index !== index);
+  deletedTodos.forEach((task, i) => {
+    task.index = i;
   });
   localStorage.setItem('todos', JSON.stringify(deletedTodos));
   window.location.reload();

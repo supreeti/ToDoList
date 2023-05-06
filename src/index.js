@@ -9,22 +9,22 @@ import completedList from './modules/CompletedList.js';
 const doList = () => {
   const todos = getList() || [];
   if (todos) {
-    todos.map((todo) => addDoList(todo));
+    todos.map((task) => addDoList(task));
   }
 };
-
 doList();
+
 document.getElementById('form').addEventListener('submit', (e) => {
   e.preventDefault();
   const todos = getList();
-  const todoInput = document.getElementById('addTasks').value;
+  const toAdd = document.getElementById('addTasks').value;
   const todoTask = {
     index: todos.length,
-    description: todoInput,
+    description: toAdd,
     completed: false,
   };
 
-  if (todoInput !== '') {
+  if (toAdd !== '') {
     addDoList(todoTask);
     addList(todoTask);
     document.getElementById('form').reset();
@@ -33,22 +33,20 @@ document.getElementById('form').addEventListener('submit', (e) => {
 
 const inputField = document.querySelectorAll('.description');
 
-inputField.forEach((todo, index) => {
-  todo.addEventListener('change', (e) => {
+inputField.forEach((task, index) => {
+  task.addEventListener('change', (e) => {
     const updateInput = e.target.value;
-    const todos = getList();
-    todos[index].description = updateInput;
-    updateList(index, todos[index].description);
+    task[index].description = updateInput;
+    updateList(index, task[index].description);
     window.location.reload();
   });
 });
-inputField.forEach((todo, index) => {
-  todo.addEventListener('keypress', (e) => {
+inputField.forEach((task, index) => {
+  task.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       const updateInput = e.target.value;
-      const todos = getList();
-      todos[index].desciption = updateInput;
-      updateList(index, todos[index].description);
+      task[index].desciption = updateInput;
+      updateList(index, task[index].description);
       window.location.reload();
     }
   });
