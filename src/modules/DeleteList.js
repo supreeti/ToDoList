@@ -1,8 +1,7 @@
 const deleteList = (index) => {
-  const toDoList = document.getElementById(`todo${index}`);
-  if (toDoList !== null) {
-    toDoList.remove();
-  }
+  const delList = document.getElementById(`task${index}`);
+  do delList.remove();
+  while (delList !== null);
 };
 
 export default deleteList;
