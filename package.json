@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
     "build": "webpack",
-    "dev": "webpack server"
+    "dev": "webpack server",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
