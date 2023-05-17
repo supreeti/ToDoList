@@ -24,7 +24,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     completed: false,
   };
 
-  if (toAdd !== '') {
+  if (toAdd) {
     addDoList(todoTask);
     addList(todoTask);
     document.getElementById('form').reset();
@@ -44,6 +44,7 @@ inputField.forEach((task, index) => {
 inputField.forEach((task, index) => {
   task.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
+      const task = getList();
       const updateInput = e.target.value;
       task[index].desciption = updateInput;
       updateList(index, task[index].description);

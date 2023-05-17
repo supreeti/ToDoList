@@ -72,7 +72,7 @@ Example command:
 
 - GitHub: [@supreeti](https://github.com/supreeti)
 - Twitter: [@Ksupreeti](https://twitter.com/Ksupreeti)
-- LinkedIn: [Supreeti](https://linkedin.com/in/Supreeti)
+- LinkedIn: [Supreeti](https://www.linkedin.com/in/supreeti-kushwaha-23336232/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

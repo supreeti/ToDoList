@@ -169,3 +169,12 @@ input[type='checkbox']:checked + span {
   width: 15px;
   border-color: #d7d7f8;
 }
+
+.listTask {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f4f5f4;
+  padding: 10px;
+}
+
